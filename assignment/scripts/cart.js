@@ -49,3 +49,14 @@ basket.push('bananas', 'pears', 'blueberries', 'oranges', 'grapefruits');
 
 console.log(addItem('hamburger')); // expecting false
 
+// Find index of an item; if that item doesn't exist in the array,
+// return null. Otherwise, remove item from the array.
+const removeItem = (item) => {
+  let x = basket.indexOf(item);
+  return x === -1 ? null : basket.splice(x, 1);
+}
+
+// Testing removeItem();
+
+console.log(removeItem('bananas'));
+console.log(basket);
