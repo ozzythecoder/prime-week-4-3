@@ -5,6 +5,9 @@ console.log('***** Cart Functions *****');
 // Init global variables
 var basket = [];
 const maxItems = 5;
+
+// Return true if the basket contains more than the maximum number of items,
+// and false if it does not.
 const isFull = () => { return basket.length >= maxItems };
 
 // Return false if basket is full, otherwise add item to basket
@@ -19,15 +22,15 @@ console.log('Basket is empty:', basket);
 console.log('Now adding an apple, expecting "true":');
 console.log(addItem('apple'));
 
-// If basket is empty, return 'nothing'.
-// Otherwise, log each item of the basket. 
+// If basket is empty, return 'nothing'
+// Otherwise, log each item of the basket.
 const listItems = () => {
   
   console.log('The basket contains:');
   
   if (basket.length === 0) {
     console.log('nothing.');
-    return false;
+    return null;
   }
 
   for (item of basket) {
@@ -70,7 +73,13 @@ const removeItem = (item) => {
   let x = basket.indexOf(item);
   return x === -1 ? null : basket.splice(x, 1);
 }
+// sidebar: I know this could be shortened to one line, as follows:
+// return basket.indexOf(item) === -1 ? null : basket.splice(basket.indexOf(item), 1);
+// however, I decided to list the basket index as a variable for legibility.
 
-// Testing removeItem();
+// Testing removeItem()
 console.log('I am removing;', removeItem('bananas'));
-listItems(); // expecting same as above, minus bananas
+listItems(); // expecting same array as above, minus bananas
+
+// Testing removeItem() failure case
+console.log('I am removing hamburger:', removeItem('hamburger')); // expecting null
