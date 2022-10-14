@@ -19,8 +19,17 @@ console.log('Basket is empty:', basket);
 console.log('Now adding an apple, expecting "true":');
 console.log(addItem('apple'));
 
-// Log each item in the basket
+// If basket is empty, return 'nothing'.
+// Otherwise, log each item of the basket. 
 const listItems = () => {
+  
+  console.log('The basket contains:');
+  
+  if (basket.length === 0) {
+    console.log('nothing.');
+    return false;
+  }
+
   for (item of basket) {
     console.log(item);
   }
@@ -29,25 +38,31 @@ const listItems = () => {
 // Testing listItems()
 console.log('Adding an orange...')
 addItem('orange');
-console.log('Listing items below:');
 listItems();
 
 // Empty basket
 const empty = () => { basket = [] };
 
 // Testing empty()
-console.log('Now emptying basket:')
+console.log('Now emptying basket.')
 empty();
-console.log('Listing items below:');
 listItems();
 
+// *************
 // Stretch Goals!
 
-// Testing isFull()
-// Pushing 5 items into the basket
-basket.push('bananas', 'pears', 'blueberries', 'oranges', 'grapefruits');
+console.log('***********');
 
-console.log(addItem('hamburger')); // expecting false
+// Testing isFull()
+// Quickly pushing 5 items into the basket
+basket.push('bananas', 'pears', 'blueberries', 'oranges', 'grapefruits');
+listItems();
+
+// Trying to add to a full basket, expecting false
+console.log('Can I add another item to the basket?', addItem('hamburger')); // expecting false
+listItems(); // expecting same as above, no hamburger
+
+console.log('***********');
 
 // Find index of an item; if that item doesn't exist in the array,
 // return null. Otherwise, remove item from the array.
@@ -57,6 +72,5 @@ const removeItem = (item) => {
 }
 
 // Testing removeItem();
-
-console.log(removeItem('bananas'));
-console.log(basket);
+console.log('I am removing;', removeItem('bananas'));
+listItems(); // expecting same as above, minus bananas
