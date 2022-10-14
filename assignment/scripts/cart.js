@@ -57,11 +57,9 @@ listItems();
 console.log('***********');
 
 // Testing isFull()
-// Quickly pushing 5 items into the basket
+// Trying to add to a full basket, expecting false
 basket.push('bananas', 'pears', 'blueberries', 'oranges', 'grapefruits');
 listItems();
-
-// Trying to add to a full basket, expecting false
 console.log('Can I add another item to the basket?', addItem('hamburger')); // expecting false
 listItems(); // expecting same as above, no hamburger
 
