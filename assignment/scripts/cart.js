@@ -8,10 +8,25 @@ const addItem = (item) => {
   return true;
 }
 
+console.log('Basket is empty:', basket);
+console.log('Now adding an apple, expecting "true":');
+console.log(addItem('apple'));
+
 const listItems = () => {
   for (item of basket) {
     console.log(item);
   }
 }
 
+console.log('Adding an orange...')
+addItem('orange');
+console.log('Listing items below:');
+listItems();
+
 const empty = () => { basket = [] };
+
+console.log('Now emptying basket:')
+empty();
+
+console.log('Listing items below:');
+listItems();
